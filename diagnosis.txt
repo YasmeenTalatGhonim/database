@@ -1,0 +1,36 @@
+using Microsoft.EntityFrameworkCore;
+
+
+namespace DrOffice.Models
+{
+ 
+     public class Diagnosis
+    {
+  
+     public int Id {get; set; }
+   
+     public string category { get; set; }
+    
+ 
+     public DiagnosisType Type { get; set; }
+   
+ }
+
+   
+ 
+
+  
+ public class UserContext : DbContext
+    {
+       
+             public DbSet<Diagnosis> Diagnosises { get; set; }
+     
+             protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+     
+                     {
+ optionsBuilder.UseSqlite("Data Source=Office.db");
+ }
+     
+}
+
+}

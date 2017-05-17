@@ -1,0 +1,35 @@
+using Microsoft.EntityFrameworkCore;
+
+
+namespace DrOffice.Models
+{
+ 
+     public class Prescription   {
+  
+     public int id {get; set; }
+   
+     public string name { get; set; }
+    
+    
+     public PrescriptionType Type { get; set; }
+   
+ }
+
+   
+ 
+
+  
+ public class UserContext : DbContext
+    {
+       
+             public DbSet<Prescription> Prescriptions { get; set; }
+     
+             protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+     
+                     {
+ optionsBuilder.UseSqlite("Data Source=Office.db");
+ }
+     
+}
+
+}
